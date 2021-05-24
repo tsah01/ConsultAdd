@@ -1,4 +1,4 @@
-
+package Task1;
 /**
  * Task one: Swap two numbers using third variable as result name and 
  * do the same task without using any third variable.
