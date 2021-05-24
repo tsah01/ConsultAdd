@@ -1,4 +1,4 @@
-
+package Task2;
 /**
  * Task : Write a program in JAVA to implement the given flowchart:` 
  * This file is an implementation of the above task.
