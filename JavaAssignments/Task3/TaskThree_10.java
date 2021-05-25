@@ -5,17 +5,41 @@
  */
 package Task3;
 
+import java.util.Scanner;
+
 /**
  *
  * @author sah
  */
 public class TaskThree_10 {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Input number of rows: ");
+        int numRows = scan.nextInt();
+        int numberOne = 1;
+        int spaces = numRows;
+        //iterate through number of lines
+        for(int i =0; i <numRows; i++){
+            //inner for loop for spaces
+            for(int s =1; s<= spaces; s++){
+                System.out.print(" ");
+                
+            }
+            //re initialize numberOne to one
+            numberOne= 1;
+            //monitoring how many numbers of times printing a number
+            for(int j =0; j<= i; j++){
+                System.out.print(numberOne + " ");
+                //formula for calculating the next number
+                numberOne = numberOne * (i-j)/(j+1);
+            }
+            //decrement the spaces
+            spaces--;
+            System.out.println();
+            
+        }
     }
     
 }
