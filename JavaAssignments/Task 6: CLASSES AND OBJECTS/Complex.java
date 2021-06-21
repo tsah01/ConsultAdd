@@ -16,68 +16,84 @@ import java.util.Scanner;
 
 public class Complex {
 
-    private long num1;
-    private long num2;
+    private long RealNum1;
+    private long ImaginaryNum2;
 
     //default constructor
     Complex() {
-        this.num1 = 0;
-        this.num2 = 0;
+        this. RealNum1 = 0;
+        this.ImaginaryNum2 = 0;
     }
 
     //overloaded constructor
     Complex(long a, long b) {
-        this.num1 = a;
-        this.num2 = b;
+        this.RealNum1 = a;
+        this.ImaginaryNum2 = b;
     }
-
-    //setter method for sum
-    public void setSum(long a, long b) {
-        this.num1 = a;
-        this.num2 = b;
-
-    }
-
-    //getter method for sum
-    public long getSum() {
-        return this.num1 + this.num2;
-    }
-
-    //setter method for difference
-    public void setDifference(long number1, long number2) {
-        this.num1 = number1;
-        this.num2 = number2;
-    }
-
+  
+private Complex sum(Complex obj){
+    long real = this.RealNum1 + obj.RealNum1;
+    long imaginary = this.ImaginaryNum2 + obj.ImaginaryNum2;
+    return new Complex(real, imaginary);
+            
+}
     //getter method for difference
-    private long getDifference() {
-        return (this.num1 - this.num2);
+    private Complex Difference(Complex obj) {
+        long real = this.RealNum1 - obj.RealNum1;
+        long imaginary = this.ImaginaryNum2 - obj.ImaginaryNum2;
+        return new Complex(real, imaginary);
     }
 
-    //setter method for product
-    public void setProduct(long number1, long number2) {
-        this.num1 = number1;
-        this.num2 = number2;
-    }
 
     //getter method for product
-    private long getProduct() {
-        return (this.num1 * this.num2);
+    private Complex Product(Complex obj) {
+        long real = this.RealNum1 * obj.RealNum1;
+        long imaginary = this.ImaginaryNum2 * obj.ImaginaryNum2;
+        return new Complex(real, imaginary);
     }
-
+   
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        System.out.print("Enter your first long number: ");
-        long first = scan.nextLong();
-        System.out.print("Enter your second long number: ");
-        long second = scan.nextLong();
+        System.out.print("Enter your first real number: ");
+        long real1 = scan.nextLong();
+        System.out.print("Enter your first imaginary number: ");
+        long imaginary1 = scan.nextLong();
+        System.out.println();
+        System.out.print("Enter your second real number: ");
+        long real2 = scan.nextLong();
+        System.out.print("Enter your second imaginary number: ");
+        long imaginary2 = scan.nextLong();
 
-        Complex obj = new Complex(first, second);
+        Complex obj1 = new Complex(real1, imaginary1);
+        Complex obj2 = new Complex(real2, imaginary2);
+        
+        Complex sumObj = obj1.sum(obj2);
+        Complex diffObj = obj1.Difference(obj2);
+        Complex productObj = obj1.Product(obj2);
+        
+        System.out.print("Enter your option \n(enter 'sum' for addition, 'diff' for difference "
+                + " or 'product' for multiplication): ");
+        String option = scan.next();
+        
+        switch(option){
+            case "sum":
+                System.out.println("The sum is: " + sumObj.RealNum1 
+                        + " + " + sumObj.ImaginaryNum2 + "i" );
+            break;
+            
+            case "diff": 
+                System.out.println("The difference is: " + diffObj.RealNum1 
+                        + " + " + diffObj.ImaginaryNum2 + "i" );
+            break;
+            
+            case "product":
+                System.out.println("The product is: " + productObj.RealNum1 
+                        + " + " + productObj.ImaginaryNum2 + "i" );
+                break;
+            
+        }
 
-        System.out.println("The sum of " + obj.num1 + " and " + obj.num2 + " is: " + obj.getSum());
-        System.out.println("The difference of " + obj.num1 + " and " + obj.num2 + " is: " + obj.getDifference());
-        System.out.println("The product of " + obj.num1 + " and " + obj.num2 + " is: " + obj.getProduct());
-
+  
     }
 
 }
